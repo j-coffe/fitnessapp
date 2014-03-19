@@ -9,9 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sample title</title>
+        <title>Соревнования</title>        
     </head>
-    <body>
-        <h1>Sample line</h1>
+    <body>   
+
+        <g:link action="list" id="1">Список</g:link>
+
+        <g:form name="addAthlete" url="[controller:'competition',action:'add']">
+            <g:textField name="firstName" value="" />
+            <g:actionSubmit value="Сохранить" action="add" />
+        </g:form>
+
     </body>
 </html>
