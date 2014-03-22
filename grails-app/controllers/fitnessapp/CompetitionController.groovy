@@ -16,6 +16,7 @@ class CompetitionController {
     }
 
     def show(Competition competitionInstance) {
+        session["competition"]=competitionInstance
         respond competitionInstance
     }
 
@@ -34,7 +35,7 @@ class CompetitionController {
             respond competitionInstance.errors, view:'create'
             return
         }
-
+        
         competitionInstance.save flush:true
 
         request.withFormat {
