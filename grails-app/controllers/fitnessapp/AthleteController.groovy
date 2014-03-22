@@ -33,12 +33,13 @@ class AthleteController {
             notFound()
             return
         }
-        
+        athleteInstance.competition=session["competition"]
+        println athleteInstance.validate()
         if (athleteInstance.hasErrors()) {
             respond athleteInstance.errors, view:'create'
             return
         }
-        athleteInstance.competition=session["competition"]
+        
         athleteInstance.save flush:true
         //Competition c=session["competition"];
         //c.addToAthletes(athleteInstance);
