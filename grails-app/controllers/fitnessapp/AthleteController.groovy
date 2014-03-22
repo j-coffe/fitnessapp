@@ -12,6 +12,7 @@ class AthleteController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+        //params.fetch=[competition:session["competition"]]
         //Competition c=session["competition"];
         
         //respond Athlete.findByCompetitions(c), model:[athleteInstanceCount: Athlete.countByCompetitions(c)]
