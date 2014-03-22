@@ -12,11 +12,12 @@ class AthleteController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        //params.fetch=[competition:session["competition"]]
+        //params.competition=[competition:session["competition"]]
         //Competition c=session["competition"];
         
-        //respond Athlete.findByCompetitions(c), model:[athleteInstanceCount: Athlete.countByCompetitions(c)]
-        respond Athlete.list(params), model:[athleteInstanceCount: Athlete.count()]
+        //respond Athlete.findAll({competition==session["competition"]}), model:[athleteInstanceCount: Athlete.findAll({competition==session["competition"]}).size()]
+        respond Athlete.list(params).findAll({it.competition.id==session["competition"].id}), model:[athleteInstanceCount: Athlete.list(params).findAll({it.competition.id==session["competition"].id}).size()]
+        //respond Athlete.findAllWhere(params), model:[athleteInstanceCount: Athlete.count()]
     }
 
     def show(Athlete athleteInstance) {
