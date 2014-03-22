@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="layout" content="main">
-        <g:set var="entityName" value="${message(code: 'competition.label', default: 'Competition')}" />
+        <!--g:set var="entityName" value="${message(code: 'competition.label', default: 'Competition')}" /-->
         <title>Создать соревнование</title>
     </head>
     <body>
