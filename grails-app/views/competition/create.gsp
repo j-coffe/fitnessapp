@@ -9,7 +9,7 @@
     <r:script>
         $(document).ready(function()
         {
-        $("#datepicker").datepicker({dateFormat: 'dd.mm.yy'});
+        $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
         })
     </r:script>
 </head>
