@@ -4,6 +4,7 @@ package fitnessapp
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import java.text.SimpleDateFormat
 
 @Transactional(readOnly = true)
 class CompetitionController {
@@ -16,6 +17,10 @@ class CompetitionController {
     }
 
     def show(Competition competitionInstance) {
+        //Date compDate = (Date) competitionInstance.date;
+      //  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+      //  println(compDate);
+     //   competitionInstance.date = format.format(compDate);
         respond competitionInstance
     }
 
