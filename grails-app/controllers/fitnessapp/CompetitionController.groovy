@@ -4,6 +4,7 @@ package fitnessapp
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import java.text.SimpleDateFormat
 
 @Transactional(readOnly = true)
 class CompetitionController {

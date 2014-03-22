@@ -37,7 +37,7 @@
                     <li class="fieldcontain">
                         <span id="date-label" class="property-label">Дата проведения</span>
 
-                        <span class="property-value" aria-labelledby="date-label"><g:formatDate date="${competitionInstance?.date}" /></span>
+                        <span class="property-value" aria-labelledby="date-label"><g:formatDate format="yyyy-MM-dd" date="${competitionInstance?.date}" /></span>
 
                     </li>
                 </g:if>
