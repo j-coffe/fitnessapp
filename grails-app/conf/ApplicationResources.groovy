@@ -2,9 +2,10 @@ modules = {
     application {
         resource url:'js/application.js'
     }
-    /*overrides {
-		'jquery-theme' {
-            resource id:'theme', url:'/css/path/to/jquery-ui-1.8.17.custom.css'
-        }
-    }*/
+    
+//        	overrides {
+//		'jquery-theme' {
+//			resource id:'theme', url:'/css/path/to/jquery-ui-1.10.3.custom.css'
+//		}
+//        }
 }

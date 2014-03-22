@@ -16,7 +16,8 @@
         Дата проведения
         <span class="required-indicator">*</span>
     </label>
-    <g:datePicker name="date" precision="day"  value="${competitionInstance?.date}"  />
+   <!-- <g:datePicker name="date" precision="day"  value="${competitionInstance?.date}"  />-->
+    <g:textField name="title" id="datepicker" value="${competitionInstance?.date}"/>
 
 </div>
 
