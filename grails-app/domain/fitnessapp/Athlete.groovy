@@ -1,14 +1,21 @@
 package fitnessapp
 
 class Athlete {
-    String firstName,secondName,middleName;
-    Date birthday;
+
+    String firstName, secondName,middleName;
     Boolean sex;
-    String city;
-    Double height, weight;
-    static constraints = {
-//        height scale: 2
-//        weight scale: 2
-    }
+    Date birthday;
+    Double height,weight;
     static belongsTo=Competition;
+    static constraints = {
+        
+        firstName (blank: false);
+        middleName(blank: false);
+        secondName(blank: false);
+        birthday(blank: false);
+        sex(blank: false);
+        height(blank: false);
+        weight(blank: false);
+        belongsTo(display:false);
+    }
 }

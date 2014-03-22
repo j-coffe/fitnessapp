@@ -1,5 +1,3 @@
-
-import fitnessapp.CompCategory
 import fitnessapp.Competition
 
 class BootStrap {

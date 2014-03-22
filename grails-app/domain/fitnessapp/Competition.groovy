@@ -3,5 +3,10 @@ package fitnessapp
 class Competition {
     String title;
     Date date;
-    static hasMany = [categories: CompCategory, athletes: Athlete];
+    
+    static hasMany=[athletes:Athlete];
+    static constraints = {
+        title();
+        date();
+    }
 }
