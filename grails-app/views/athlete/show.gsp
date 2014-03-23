@@ -15,6 +15,8 @@
                 <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
                 <li><g:link class="list" action="index">К списку участников</g:link></li>
                 <li><g:link class="create" action="create">Зарегестрировать участника</g:link></li>
+                <li><g:link class="list" controller="athleteCCategory" action="index">Добавить участнику категорию</g:link></li>
+                <li><g:link action="show" controller="competition" id="${session['competition'].id}">К соревнованию</g:link></li>
 
             </ul>
         </div>

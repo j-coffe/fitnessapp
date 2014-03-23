@@ -21,6 +21,7 @@ class AthleteController {
     }
 
     def show(Athlete athleteInstance) {
+        session["athlete"]=athleteInstance
         respond athleteInstance
     }
 
