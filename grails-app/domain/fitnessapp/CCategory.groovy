@@ -1,7 +1,9 @@
 package fitnessapp
 
 class CCategory {
-
-    static constraints = {
-    }
+    String title;
+    
+    Competition competition;
+    static belongsTo =[Competition];   
+    static hasMany=[athleteccategory:AthleteCCategory]
 }

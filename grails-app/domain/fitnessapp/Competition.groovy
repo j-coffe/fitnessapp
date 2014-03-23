@@ -7,9 +7,5 @@ class Competition {
     @BindingFormat('yyyy-MM-dd')
     Date date;
     
-    static hasMany=[athletes:Athlete];
-    static constraints = {
-        title();
-        date();
-    }
+    static hasMany=[athletes:Athlete, judges:Judge, ccategories:CCategory];
 }

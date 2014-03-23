@@ -15,6 +15,8 @@
                 <li><g:link class="list" action="index">К списку соревнований</g:link></li>
                 <li><g:link class="create" action="create">Добавить соревнование</g:link></li>
                  <li><g:link class="list" controller="athlete" action="index">К списку участников</g:link></li>
+                 <li><g:link class="list" controller="judge" action="index">К списку судей</g:link></li>
+                 <li><g:link class="list" controller="CCategory" action="index">К списку категорий</g:link></li>
                 </ul>
             </div>
             <div id="show-competition" class="content scaffold-show" role="main">
