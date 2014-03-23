@@ -18,8 +18,8 @@
     </label>
    <!-- <g:datePicker name="date" precision="day"  value="${competitionInstance?.date}"  />-->
     <g:textField name="date" id="datepicker" value="${formatDate(date: competitionInstance?.date, format: 'yyyy-MM-dd')}" class="datetime"/>
-   
- 
+
+
 </div>
 
 <!--div class="fieldcontain ${hasErrors(bean: competitionInstance, field: 'athletes', 'error')} ">

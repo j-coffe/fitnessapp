@@ -97,6 +97,15 @@
 
                     </li>
                 </g:if>
+                
+                 <g:if test="${athleteInstance?.city}">
+                    <li class="fieldcontain">
+                        <span id="city-label" class="property-label">Город</span>
+
+                        <span class="property-value" aria-labelledby="city-label"><g:fieldValue bean="${athleteInstance}" field="city"/></span>
+
+                    </li>
+                </g:if>
 
             </ol>
             <g:form url="[resource:athleteInstance, action:'delete']" method="DELETE">

@@ -7,5 +7,6 @@ class Athlete {
     Boolean sex;
     Date birthday;
     Double height,weight;
+    String city;
     static belongsTo=[competition:Competition];
 }
