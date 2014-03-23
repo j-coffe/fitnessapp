@@ -1,9 +1,17 @@
 <%@ page import="fitnessapp.Athlete" %>
 
+<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'num', 'error')} required">
+	<label for="num">
+		Номер
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="num" required="" value="${athleteInstance?.num}"/>
+
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'firstName', 'error')} required">
 	<label for="firstName">
-		<g:message code="athlete.firstName.label" default="First Name" />
+		Имя
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="firstName" required="" value="${athleteInstance?.firstName}"/>
@@ -12,7 +20,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'middleName', 'error')} required">
 	<label for="middleName">
-		<g:message code="athlete.middleName.label" default="Middle Name" />
+		Отчество
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="middleName" required="" value="${athleteInstance?.middleName}"/>
@@ -21,7 +29,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'secondName', 'error')} required">
 	<label for="secondName">
-		<g:message code="athlete.secondName.label" default="Second Name" />
+		Фамилия
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="secondName" required="" value="${athleteInstance?.secondName}"/>
@@ -30,7 +38,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'birthday', 'error')} required">
 	<label for="birthday">
-		<g:message code="athlete.birthday.label" default="Birthday" />
+		День рождения
 		<span class="required-indicator">*</span>
 	</label>
 	<g:datePicker name="birthday" precision="day"  value="${athleteInstance?.birthday}"  />
@@ -39,16 +47,17 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'sex', 'error')} ">
 	<label for="sex">
-		<g:message code="athlete.sex.label" default="Sex" />
+		Пол
 		
 	</label>
-	<g:checkBox name="sex" value="${athleteInstance?.sex}" />
+        <g:select  name="sex" from="${['муж.','жен.']}" keys="${[true,false]}" value="${athleteInstance?.sex}" required=""/>
+	<!--g:checkBox name="sex" value="${athleteInstance?.sex}" /-->
 
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'height', 'error')} required">
 	<label for="height">
-		<g:message code="athlete.height.label" default="Height" />
+		Рост
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="height" value="${fieldValue(bean: athleteInstance, field: 'height')}" required=""/>
@@ -57,7 +66,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'weight', 'error')} required">
 	<label for="weight">
-		<g:message code="athlete.weight.label" default="Weight" />
+		Вес
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="weight" value="${fieldValue(bean: athleteInstance, field: 'weight')}" required=""/>
