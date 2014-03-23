@@ -34,17 +34,28 @@ class AthleteCCategoryController {
             return
         }
         
-       // athleteCCategoryInstance.athlete=session["athlete"]
-        params.ccategory.id.each({
+        
+        //params.ccategory.id=params.ccategory.id.collect()
+        
+        //println params.ccategory.id.size()
+        
+        // athleteCCategoryInstance.athlete=session["athlete"]
+        def list;
+        if(params.ccategory.id instanceof  String){
+            list=params.ccategory.id.split(" ").toList(); 
+        }else{
+            list=params.ccategory.id;
+        }
+        list.each({
                 AthleteCCategory ac=new AthleteCCategory();
                 ac.athlete=session["athlete"]
                 ac.ccategory=CCategory.get(it)
                 println ac.validate();
       
-//                if (athleteCCategoryInstance.hasErrors()) {
-//                    respond athleteCCategoryInstance.errors, view:'create'
-//                    return
-//                }
+                //                if (athleteCCategoryInstance.hasErrors()) {
+                //                    respond athleteCCategoryInstance.errors, view:'create'
+                //                    return
+                //                }
 
                 ac.save() //flush:true
             })
