@@ -22,7 +22,8 @@
         optionKey="id"
         optionValue="title" 
         required=""
-        value="${athleteCCategoryInstance?.ccategory?.id}" class="many-to-one" />
+        value="${athleteCCategoryInstance?.ccategory?.id}" class="many-to-one"
+            multiple="true"/>
 
 </div>
 

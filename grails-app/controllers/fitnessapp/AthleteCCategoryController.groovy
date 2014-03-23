@@ -26,23 +26,44 @@ class AthleteCCategoryController {
 
     @Transactional
     def save(AthleteCCategory athleteCCategoryInstance) {
+        
+        //println params.ccategory.id
+        
         if (athleteCCategoryInstance == null) {
             notFound()
             return
         }
-        athleteCCategoryInstance.athlete=session["athlete"]
-        println athleteCCategoryInstance.validate();
-        if (athleteCCategoryInstance.hasErrors()) {
-            respond athleteCCategoryInstance.errors, view:'create'
-            return
-        }
+        
+       // athleteCCategoryInstance.athlete=session["athlete"]
+        params.ccategory.id.each({
+                AthleteCCategory ac=new AthleteCCategory();
+                ac.athlete=session["athlete"]
+                ac.ccategory=CCategory.get(it)
+                println ac.validate();
+      
+//                if (athleteCCategoryInstance.hasErrors()) {
+//                    respond athleteCCategoryInstance.errors, view:'create'
+//                    return
+//                }
 
-        athleteCCategoryInstance.save flush:true
+                ac.save() //flush:true
+            })
+        //        athleteCCategoryInstance.ccategory=CCategory.get(params.ccategory.id)
+        //        println athleteCCategoryInstance.validate();
+        //      
+        //        if (athleteCCategoryInstance.hasErrors()) {
+        //            respond athleteCCategoryInstance.errors, view:'create'
+        //            return
+        //        }
+        //
+        //        athleteCCategoryInstance.save flush:true
+           
+        
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'athleteCCategoryInstance.label', default: 'AthleteCCategory'), athleteCCategoryInstance.id])
-                redirect athleteCCategoryInstance
+                redirect( action: "index") //athleteCCategoryInstance
             }
             '*' { respond athleteCCategoryInstance, [status: CREATED] }
         }
