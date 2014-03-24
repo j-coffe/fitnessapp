@@ -6,7 +6,7 @@ dataSource {
     username = "postgres"
     password = "postgres"
     dbCreate = "update"
-    //dbCreate = "create-drop"
+ //   dbCreate = "create-drop"
     url = "jdbc:postgresql://localhost:5432/fitnessdb"
 }
 hibernate {

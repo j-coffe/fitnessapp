@@ -9,5 +9,5 @@ class Athlete {
     String city;
     
     static belongsTo =[competition:Competition];
-    static hasMany=[athleteccategory:AthleteCCategory]
+    static hasMany=[athleteccategory:AthleteCCategory, athletePoints : AthletePoint]
 }

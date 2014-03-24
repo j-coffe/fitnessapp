@@ -51,6 +51,10 @@ class CompetitionController {
     def edit(Competition competitionInstance) {
         respond competitionInstance
     }
+    
+    def beginCompetition(Competition competitionInstance) {
+        redirect(controller: "protocol", action: "showIndex")
+    }
 
     @Transactional
     def update(Competition competitionInstance) {

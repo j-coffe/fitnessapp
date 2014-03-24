@@ -5,4 +5,5 @@ class Judge {
     Integer num;
     
     static belongsTo =[competition:Competition];
+    static hasMany = [protocols : Protocol];
 }

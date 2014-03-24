@@ -51,6 +51,7 @@
                 <fieldset class="buttons">
                     <g:link class="edit" action="edit" resource="${competitionInstance}">Редактировать</g:link>
                     <g:actionSubmit class="delete" action="delete" value="Удалить" onclick="return confirm('Вы уверены?');" />
+                    <g:link class="list" action="beginCompetition" resource="${competitionInstance}">Начать</g:link>
                 </fieldset>
             </g:form>
         </div>
