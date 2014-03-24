@@ -1,4 +1,5 @@
 <%@ page import="fitnessapp.AthleteCCategory" %>
+<%@ page import="fitnessapp.Athlete" %>
 
 
 
@@ -13,12 +14,12 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteCCategoryInstance, field: 'ccategory', 'error')} required">
 	<label for="ccategory">
-		<g:message code="athleteCCategory.ccategory.label" default="Ccategory" />
+		Категории
 		<span class="required-indicator">*</span>
 	</label>
         
 	<g:select id="ccategory" name="ccategory.id" 
-        from="${fitnessapp.CCategory.list().findAll({it.competition.id==session["competition"].id})}" 
+        from="${ fitnessapp.CCategory.list().findAll({  it.competition.id==session["competition"].id  }).minus( fitnessapp.Athlete.findById(session['athlete'].id).athleteccategory.ccategory) }" 
         optionKey="id"
         optionValue="title" 
         required=""

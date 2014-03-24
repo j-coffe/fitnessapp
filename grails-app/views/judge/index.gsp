@@ -11,7 +11,8 @@
             <!--a href="#list-judge" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a-->
         <div class="nav" role="navigation">
             <ul>
-                <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
+                <!--li><a class="home" href="${createLink(uri: '/')}">На главную</a></li-->
+                <li><g:link controller="competition" action="show" id="${session['competition'].id}">К соревнованию</g:link></li>
                 <li><g:link class="create" action="create">Добавить судью</g:link></li>
                 </ul>
             </div>
