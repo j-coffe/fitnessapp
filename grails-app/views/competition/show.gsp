@@ -12,7 +12,7 @@
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
-                <li><g:link class="list" action="index">К списку соревнований</g:link></li>
+                
                 <li><g:link class="create" action="create">Добавить соревнование</g:link></li>
                  <li><g:link class="list" controller="athlete" action="index">К списку участников</g:link></li>
                  <li><g:link class="list" controller="judge" action="index">К списку судей</g:link></li>
