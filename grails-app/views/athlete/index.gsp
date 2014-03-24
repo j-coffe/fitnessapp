@@ -13,7 +13,7 @@
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
-                <li><g:link class="create" action="create">Зарегестрировать участника</g:link></li>
+                <li><g:link class="create" action="create">Добавить участника</g:link></li>
 
             </ul>
         </div>
