@@ -17,7 +17,35 @@ class CCategoryController {
     }
 
     def show(CCategory CCategoryInstance) {
+        session["ccategory"]=CCategoryInstance;
         respond CCategoryInstance
+    }
+    
+    @Transactional
+    def createProtocol(){
+        def competition=Competition.findById(session['competition'].id);
+        def ccategory= CCategory.findById(session["ccategory"].id);
+        def judges = competition.judges;
+        def athletes = ccategory.athleteccategory.athlete.sort({it.num});
+        
+        judges.each({ j ->
+                //println j
+                Protocol p=new Protocol(judge:j, ccategory:ccategory,competition:competition);
+                athletes.each({ a ->
+                        p.addToAthletePoints(new AthletePoint(athlete:a,point1:0,point2:0) );
+                    })
+                def q=p.save()
+                if(q==null)println "Протокол не создался"
+            })
+        def protocols=Protocol.findAllByCcategory(ccategory);
+        println protocols
+        render (view:"createProtocol",model:[
+                competition: competition,
+                ccategory:ccategory,
+                judges:judges,
+                athletes:athletes,
+                protocols:protocols
+        ]);
     }
 
     def create() {

@@ -14,6 +14,7 @@
                 <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
                 <li><g:link class="list" action="index">К списку категорий соревнования</g:link></li>
                 <li><g:link class="create" action="create">Добавить категорию</g:link></li>
+                <li><g:link class="create" action="createProtocol">Сгенерировать протоколы судей</g:link></li>
                 </ul>
             </div>
             <div id="show-CCategory" class="content scaffold-show" role="main">

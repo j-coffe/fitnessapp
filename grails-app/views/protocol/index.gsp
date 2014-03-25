@@ -13,10 +13,10 @@
     <r:script>
         $(".catSelect").change(function(){
         alert($( ".catSelect option:selected" ).text());
-           ${session["categ"]}=$( ".catSelect option:selected" );
+        ${session["categ"]}=$( ".catSelect option:selected" );
         });
     </r:script>
-    
+
 </head>
 
 <body>
@@ -27,8 +27,8 @@
     </div>
 
     <div id="list-protocols" class="content scaffold-list" role="main">
-      <g:link action="showIndex" id="1">Еще раз</g:link>
-    </div>
+        <g:link action="showIndex" id="1">Еще раз</g:link>
+        </div>
 
 </body>
 </html>
