@@ -21,7 +21,7 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
-grails.project.dependency.resolver = "maven" // or ivy
+grails.project.dependency.resolver = "ivy" // or maven
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
@@ -59,6 +59,7 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'
+        compile ":jqgrid:3.8.0.1"
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.9" // or ":hibernate4:4.3.4"
         runtime ":database-migration:1.3.8"
