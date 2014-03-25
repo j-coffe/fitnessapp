@@ -8,7 +8,7 @@ class ProtocolController {
     static allowedMethods = [getAthletesByCatId: "GET"]
     
     def showIndex() { 
-        Competition comp =  session["competition"];
+        //Competition comp =  session["competition"];
         // <!--   <g:select name="ccategory.title" from="${categs}"/>-->
         // Set categs = comp.ccategories;
 //        fitnessapp.CCategory ca = session["categ"];

@@ -17,8 +17,10 @@ class JudgeController {
     }
 
     def show(Judge judgeInstance) {
+        session["judge"]=judgeInstance;
         respond judgeInstance
     }
+    
 
     def create() {
         respond new Judge(params)
