@@ -32,6 +32,7 @@ class AthleteCCategoryController {
             return
         }
         
+        //добавляем атлету категории
         def list=[];
         list<<params.ccategory.id;
         list=list.flatten();
@@ -42,6 +43,20 @@ class AthleteCCategoryController {
                 println ac.validate();
                 ac.save() //flush:true
             })
+        //добавить нулевые оценки в протоколы
+        list.each({
+                def ccat = CCategory.findById(it)
+                def prot =ccat.protocols
+                prot.each({
+                        AthletePoint ap=new AthletePoint(point1:0,point2:0,athlete:session["athlete"],protocol:it);
+                        println ap.validate();
+                        ap.save();
+                })
+                //println prot;
+            })
+        
+        //--
+        
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'athleteCCategoryInstance.label', default: 'AthleteCCategory'), athleteCCategoryInstance.id])
