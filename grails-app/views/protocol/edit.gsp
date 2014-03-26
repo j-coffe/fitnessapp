@@ -19,17 +19,17 @@
         <div id="edit-athlete" class="content scaffold-edit" role="main">
             <h1>${ccategory.title}</h1>
 
-            <g:form url="[resource:athleteInstance, action:'update']" method="PUT" >
+            <g:form url="[controller:'protocol', action:'saveAll']" method="POST" >
                 <g:hiddenField name="version" value="${athleteInstance?.version}" />
                 <fieldset class="form">
                     <table>
                         <tr>
                             <td>Ф.И.О. спортсмена</td>
                             <g:each var="judge" in="${judges.sort({it.num})}">
-                                <td>Судья № ${judge.num}<!--br/>  ${judge.secondName} ${judge.firstName[0]}.${judge.middleName[0]}.--></td>
+                                <td>Судья № ${judge.num}</td>
                             </g:each>
                             <g:each var="judge" in="${judges.sort({it.num})}">
-                                <td>Судья № ${judge.num}<!--br/>  ${judge.secondName} ${judge.firstName[0]}.${judge.middleName[0]}.--></td>
+                                <td>Судья № ${judge.num}</td>
                             </g:each>
                             <g:each var="atl" in="${ccategory.athleteccategory.athlete.sort({it.num})}">
                             <tr>
@@ -38,6 +38,7 @@
                                     <g:set var="protocol" value="${ Protocol.findAllWhere(judge: judge, ccategory: ccategory, competition:competition) }" />
                                     <g:set var="apt" value="${AthletePoint.findAllWhere(athlete:atl,protocol:protocol[0])}" />
                                     <td style="background:rgba(0,0,255,0.1)">
+                                        ${apt[0].id}
                                         <g:textField size="1" name="pp1_${apt[0].id}" required="" value="${apt[0].point1}"/>
                                     </td>
                                 </g:each>
@@ -45,7 +46,8 @@
                                     <g:set var="protocol" value="${ Protocol.findAllWhere(judge: judge, ccategory: ccategory, competition:competition) }" />
                                     <g:set var="apt" value="${AthletePoint.findAllWhere(athlete:atl,protocol:protocol[0])}" />
                                     <td style="background:rgba(255,0,0,0.1)">
-                                        <g:textField size="1" name="pp2_${apt[0].id}" required="" value="${apt[0].point1}"/>
+                                        ${apt[0].id}
+                                        <g:textField size="1" name="pp2_${apt[0].id}" required="" value="${apt[0].point2}"/>
                                     </td>
                                 </g:each>
                             </tr>
@@ -54,7 +56,7 @@
                     </table>
                 </fieldset>
                 <fieldset class="buttons">
-                    <g:actionSubmit class="save" action="" value="Принять" />
+                    <g:actionSubmit class="save" action="saveAll" value="Принять" />
                 </fieldset>
             </g:form>
         </div>

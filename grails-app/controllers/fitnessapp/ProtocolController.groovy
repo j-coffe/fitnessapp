@@ -6,7 +6,7 @@ import grails.web.RequestParameter
 
 class ProtocolController {
     
-    static allowedMethods = [getAthletesByCatId: "GET",edit:"GET"]
+    static allowedMethods = [getAthletesByCatId: "GET",edit:"GET",saveAll:"POST"]
     
     
     def showIndex() { 
@@ -36,4 +36,26 @@ class ProtocolController {
         
         render (view:"edit",model:[ccategory:ccategory,judges:judges,protocols:protocols,competition:competition])
     }  
+    
+    @Transactional
+    def saveAll() {
+        println params
+        params.each({ t,v ->
+                if(t.split("_")[0]=="pp1"){
+                    AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
+                    ap.point1=v.toInteger();
+                    ap.save()
+                     println (ap.id +" "+ ap.point1+" "+t+" "+v)
+                }
+                else if(t.split("_")[0]=="pp2"){
+                    AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
+                    ap.point2=v.toInteger();
+                    ap.save()
+                    println (ap.id +" "+ ap.point2+" "+t+" "+v)
+                }
+        })
+        
+        render (view:"index")
+    }
+    
 }
