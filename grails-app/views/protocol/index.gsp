@@ -22,7 +22,7 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].firstName + '</td><td>' + json[i].secondName + '</td><tr>';
+            tr += '<tr><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
             }
             $('#list tbody').append(tr);
         });
