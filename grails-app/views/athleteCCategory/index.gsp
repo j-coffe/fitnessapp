@@ -12,6 +12,7 @@
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
+                <li><g:link class="create" controller="athlete" action="show" id="${session['athlete'].id}">Вернуться к участнику</g:link></li>
                 <li><g:link class="create" action="create">Добавить участнику список категорий</g:link></li>
                 </ul>
             </div>
