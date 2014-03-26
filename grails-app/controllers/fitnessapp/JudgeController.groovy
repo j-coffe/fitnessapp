@@ -33,7 +33,8 @@ class JudgeController {
             return
         }
         
-        judgeInstance.competition=session["competition"]
+        def competition=Competition.findById(session['competition'].id);
+        judgeInstance.competition=competition;
         println judgeInstance.validate();
 
         if (judgeInstance.hasErrors()) {
@@ -42,7 +43,15 @@ class JudgeController {
         }
 
         judgeInstance.save flush:true
-
+        //теперь добавляем протоколы ко всем соревнованиям
+        competition.ccategories.sort({it.title}).each({
+                Protocol p=new Protocol(judge:judgeInstance, ccategory:it,competition:competition);
+                def result=p.save();
+                if(result==null){
+                    println "ERROR"
+                }
+            })
+        //--
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'judgeInstance.label', default: 'Judge'), judgeInstance.id])
