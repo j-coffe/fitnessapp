@@ -13,7 +13,10 @@ class AthleteCCategoryController {
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         //respond AthleteCCategory.list(params), model:[athleteCCategoryInstanceCount: AthleteCCategory.count()]
-        respond AthleteCCategory.list(params).findAll({it.athlete.id==session["athlete"].id}), model:[athleteCCategoryCount: AthleteCCategory.list(params).findAll({it.athlete.id==session["athlete"].id}).size()]
+        Athlete a = Athlete.findById(session["athlete"].id)
+        println a.athleteccategory
+        respond a.athleteccategory, model:[athleteCCategoryCount: a.athleteccategory.size(),
+        athleteCCategoryInstanceList:a.athleteccategory.sort({it.ccategory.title})]
     }
 
     def show(AthleteCCategory athleteCCategoryInstance) {
