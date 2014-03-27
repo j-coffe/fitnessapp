@@ -28,10 +28,16 @@ class ProtocolController {
           def athMap = [:];
           athMap=[athleteFIO : q.athlete.firstName + " " + q.athlete.secondName + " " + q.athlete.middleName];//наименование участника
           def q1 = AthletePoint.where{athlete == q.athlete && (protocol in protocols)};
-          def q1Max = q1.where{point1 == max(point1)};
-          def q1Min = q1.where{point1 == min(point1)};
-          def q2Max = q1.where{point2 == max(point2)};
-          def q2Min = q1.where{point2 == min(point2)};
+          int max1 = q1.list().point1.max();
+          int min1 = q1.list().point1.min();
+          int max2 = q1.list().point2.max();
+          int min2 = q1.list().point2.min();
+          //def q1Max = q1.where{point1 == max(point1)};
+          
+          //def q1Min = q1.where{point1 == min(point1)};
+          
+         // def q2Max = q1.where{point2 == max(point2)};
+         // def q2Min = q1.where{point2 == min(point2)};
           //бежим по протоколам каждого судьи (в данной категории)          
           for(n in protocols) {
               // n.id - текущий протокол
@@ -49,8 +55,8 @@ class ProtocolController {
           }
           int p1 = athMap?.point1 == null ? 0 : athMap?.point1;
           int p2 = athMap?.point2 == null ? 0 : athMap?.point2;
-          athMap.put("point1", p1-q1Max.findAll()[0].point1-q1Min.findAll()[0].point1);
-          athMap.put("point2", p2-q2Max.findAll()[0].point2-q2Min.findAll()[0].point2);
+          athMap.put("point1", p1-max1-min1);
+          athMap.put("point2", p2-max2-min2);
           
           totalList.add(athMap);
         }
