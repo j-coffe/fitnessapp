@@ -108,6 +108,15 @@
 
                     </li>
                 </g:if>
+                
+                <g:if test="${athleteInstance?.athleteccategory?.ccategory?.title}">
+                    <li class="fieldcontain">
+                        <span id="city-label" class="property-label">Список категорий</span>
+
+                        <span class="property-value" aria-labelledby="city-label"><g:fieldValue bean="${athleteInstance?.athleteccategory?.ccategory.sort({it.title})}" field="title"/></span>
+
+                    </li>
+                </g:if>
 
             </ol>
             <g:form url="[resource:athleteInstance, action:'delete']" method="DELETE">

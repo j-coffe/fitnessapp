@@ -92,13 +92,13 @@ class ProtocolController {
                 if(t.split("_")[0]=="pp1"){
                     AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
                     ap.point1=v.toInteger();
-                    ap.save()
+                    ap.save(flush: true)
                      println (ap.id +" "+ ap.point1+" "+t+" "+v)
                 }
                 else if(t.split("_")[0]=="pp2"){
                     AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
                     ap.point2=v.toInteger();
-                    ap.save()
+                    ap.save(flush: true)
                     println (ap.id +" "+ ap.point2+" "+t+" "+v)
                 }
         })
