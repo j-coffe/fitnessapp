@@ -26,7 +26,7 @@ class ProtocolController {
           // q.athlete.id  - текущий атлет
           // id - текущая категория
           def athMap = [:];
-          athMap=[athleteFIO : q.athlete.firstName + " " + q.athlete.secondName + " " + q.athlete.middleName];//наименование участника
+          athMap=[athleteFIO : q.athlete.firstName + " " + q.athlete.secondName + " " + q.athlete.middleName, athleteNum : q.athlete.num];//наименование участника
           def q1 = AthletePoint.where{athlete == q.athlete && (protocol in protocols)};
           int max1 = q1.list().point1.max();
           int min1 = q1.list().point1.min();

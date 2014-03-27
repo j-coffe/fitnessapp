@@ -22,7 +22,7 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
+            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -40,9 +40,16 @@
         <g:link class="pr_link" controller="protocol" action="edit" params="[category_id:'']">Редактировать протокол</g:link>
 
     </div>
+    
 
     <div id="list-protocols" class="content scaffold-list" role="main">
-        <table id="list"><thead></thead><tbody></table>   
+        <table id="list"><thead>                    
+                    <tr>
+                        <g:sortableColumn property="athleteNum" title="№" />
+                        <g:sortableColumn property="athleteFIO" title="ФИО Участника" />
+                        <g:sortableColumn property="point1" title="Оценка 1й выход" />
+                        <g:sortableColumn property="point2" title="Оценка 2й выход" />
+                    </tr></thead><tbody></table>   
         <div id="pager"></div> 
     </div>
 
