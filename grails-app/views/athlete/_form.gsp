@@ -82,5 +82,21 @@
 
 </div>
 
+<div class="fieldcontain required">
+	<label for="ccategory">
+		Категории
+		<span class="required-indicator">*</span>
+	</label>
+        <!-- .minus( athleteInstance?.athleteccategory?.ccategory).sort({it.title}) -->
+	<g:select id="ccategory" name="ccategory.id" 
+        from="${ fitnessapp.Competition.findById(session['competition' ].id).ccategories.sort({it.title}) }" 
+        optionKey="id"
+        optionValue="title" 
+        required=""
+        value="${ athleteInstance?.athleteccategory?.ccategory?.id }"
+        class="many-to-one"
+        multiple="true"/>
+
+</div>
 
 

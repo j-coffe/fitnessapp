@@ -44,6 +44,8 @@
                         <g:sortableColumn property="weight" title="Вес, кг" />
                         
                         <g:sortableColumn property="city" title="Город" />
+                        
+                        <g:sortableColumn property="city" title="Категории" />
 
                     </tr>
                 </thead>
@@ -68,6 +70,8 @@
                             <td>${fieldValue(bean: athleteInstance, field: "weight")}</td>
                             
                             <td>${fieldValue(bean: athleteInstance, field: "city")}</td>
+                            
+                            <td>${ athleteInstance.athleteccategory.ccategory.sort({it.title}).title }</td>
 
                         </tr>
                     </g:each>
