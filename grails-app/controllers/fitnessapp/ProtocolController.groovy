@@ -61,7 +61,11 @@ class ProtocolController {
           totalList.add(athMap);
         }
         
-        
+        def mc= [
+                compare: {a,b-> Integer.valueOf(a.athleteNum).equals(Integer.valueOf(b.athleteNum)) ? 0 :
+                    Integer.valueOf(a.athleteNum) > Integer.valueOf(b.athleteNum)? 1: -1 }
+                ] as Comparator
+        totalList.sort(mc)
         //println(protocols.collect());
 //         def list = [];
 //        for(i in athletes) {
