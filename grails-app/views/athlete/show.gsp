@@ -36,6 +36,14 @@
 
                     </li>
                 </g:if>
+                <g:if test="${athleteInstance?.secondName}">
+                    <li class="fieldcontain">
+                        <span id="secondName-label" class="property-label">Фамилия</span>
+
+                        <span class="property-value" aria-labelledby="secondName-label"><g:fieldValue bean="${athleteInstance}" field="secondName"/></span>
+
+                    </li>
+                </g:if>
 
                 <g:if test="${athleteInstance?.firstName}">
                     <li class="fieldcontain">
@@ -55,14 +63,6 @@
                     </li>
                 </g:if>
 
-                <g:if test="${athleteInstance?.secondName}">
-                    <li class="fieldcontain">
-                        <span id="secondName-label" class="property-label">Фамилия</span>
-
-                        <span class="property-value" aria-labelledby="secondName-label"><g:fieldValue bean="${athleteInstance}" field="secondName"/></span>
-
-                    </li>
-                </g:if>
 
                 <g:if test="${athleteInstance?.birthday}">
                     <li class="fieldcontain">

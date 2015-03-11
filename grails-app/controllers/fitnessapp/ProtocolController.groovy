@@ -30,8 +30,8 @@ class ProtocolController {
           def q1 = AthletePoint.where{athlete == q.athlete && (protocol in protocols)};
           int max1 = q1.list().point1.max();
           int min1 = q1.list().point1.min();
-          int max2 = q1.list().point2.max();
-          int min2 = q1.list().point2.min();
+          //int max2 = q1.list().point2.max();
+          //int min2 = q1.list().point2.min();
           //def q1Max = q1.where{point1 == max(point1)};
           
           //def q1Min = q1.where{point1 == min(point1)};
@@ -44,19 +44,19 @@ class ProtocolController {
               def query = AthletePoint.where {  athlete == q.athlete && protocol == n}                
               AthletePoint ap = query.find();//оценки данного атлета
               int p1 = athMap?.point1 == null ? 0 : athMap?.point1;
-              int p2 = athMap?.point2 == null ? 0 : athMap?.point2;
+            //  int p2 = athMap?.point2 == null ? 0 : athMap?.point2;
               if(ap != null) {
                athMap.put("point1", p1+ap.point1);
-               athMap.put("point2", p2+ap.point2);
+              // athMap.put("point2", p2+ap.point2);
               } else {
                athMap.put("point1", p1);
-               athMap.put("point2", p2);
+               //athMap.put("point2", p2);
               }
           }
           int p1 = athMap?.point1 == null ? 0 : athMap?.point1;
-          int p2 = athMap?.point2 == null ? 0 : athMap?.point2;
+          //int p2 = athMap?.point2 == null ? 0 : athMap?.point2;
           athMap.put("point1", p1-max1-min1);
-          athMap.put("point2", p2-max2-min2);
+          //athMap.put("point2", p2-max2-min2);
           
           totalList.add(athMap);
         }
@@ -99,12 +99,12 @@ class ProtocolController {
                     ap.save(flush: true)
                      println (ap.id +" "+ ap.point1+" "+t+" "+v)
                 }
-                else if(t.split("_")[0]=="pp2"){
-                    AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
-                    ap.point2=v.toInteger();
-                    ap.save(flush: true)
-                    println (ap.id +" "+ ap.point2+" "+t+" "+v)
-                }
+//                else if(t.split("_")[0]=="pp2"){
+//                    AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
+//                    ap.point2=v.toInteger();
+//                    ap.save(flush: true)
+//                    println (ap.id +" "+ ap.point2+" "+t+" "+v)
+//                }
         })
         
         render (view:"index")

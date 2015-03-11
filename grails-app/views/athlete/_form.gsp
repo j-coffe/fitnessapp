@@ -1,5 +1,7 @@
 <%@ page import="fitnessapp.Athlete" %>
 
+
+
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'num', 'error')} required">
 	<label for="num">
 		Номер
@@ -8,7 +10,14 @@
 	<g:textField name="num" required="" value="${athleteInstance?.num}"/>
 
 </div>
+<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'secondName', 'error')} required">
+	<label for="secondName">
+		Фамилия
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="secondName" required="" value="${athleteInstance?.secondName}"/>
 
+</div>
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'firstName', 'error')} required">
 	<label for="firstName">
 		Имя
@@ -27,14 +36,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'secondName', 'error')} required">
-	<label for="secondName">
-		Фамилия
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="secondName" required="" value="${athleteInstance?.secondName}"/>
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'birthday', 'error')} required">
 	<label for="birthday">
@@ -82,13 +83,13 @@
 
 </div>
 
-<div class="fieldcontain required">
+<!--div class="fieldcontain required">
 	<label for="ccategory">
 		Категории
 		<span class="required-indicator">*</span>
-	</label>
+	</label-->
         <!-- .minus( athleteInstance?.athleteccategory?.ccategory).sort({it.title}) -->
-	<g:select id="ccategory" name="ccategory.id" 
+	<!--g:select id="ccategory" name="ccategory.id" 
         from="${ fitnessapp.Competition.findById(session['competition' ].id).ccategories.sort({it.title}) }" 
         optionKey="id"
         optionValue="title" 
@@ -97,6 +98,6 @@
         class="many-to-one"
         multiple="true"/>
 
-</div>
+</div-->
 
 

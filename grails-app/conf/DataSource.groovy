@@ -7,7 +7,7 @@ dataSource {
     password = "postgres"
     dbCreate = "update"
  //   dbCreate = "create-drop"
-    url = "jdbc:postgresql://localhost:5432/fitnessdb"
+    url = "jdbc:postgresql://localhost:5432/fitnessdb2"
 }
 hibernate {
     cache.use_second_level_cache = true

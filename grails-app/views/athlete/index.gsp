@@ -28,12 +28,12 @@
                 <thead>
                     <tr>
                         <g:sortableColumn property="num" title="Номер" />
-
+                        <g:sortableColumn property="secondName" title="Фамилия" />
                         <g:sortableColumn property="firstName" title="Имя" />
 
                         <g:sortableColumn property="middleName" title="Отчество" />
 
-                        <g:sortableColumn property="secondName" title="Фамилия" />
+                        
 
                         <g:sortableColumn property="birthday" title="Дата рождения" />
 
@@ -54,12 +54,12 @@
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
                             <td>${fieldValue(bean: athleteInstance, field: "num")}</td>
-
-                            <td><g:link action="show" id="${athleteInstance.id}">${fieldValue(bean: athleteInstance, field: "firstName")}</g:link></td>
+                            <td><g:link action="show" id="${athleteInstance.id}">${fieldValue(bean: athleteInstance, field: "secondName")}</g:link></td>
+                            <td>${fieldValue(bean: athleteInstance, field: "firstName")}</td>
 
                             <td>${fieldValue(bean: athleteInstance, field: "middleName")}</td>
 
-                            <td>${fieldValue(bean: athleteInstance, field: "secondName")}</td>
+                            
 
                             <td><g:formatDate format="yyyy-MM-dd" date="${athleteInstance.birthday}" /></td>
 

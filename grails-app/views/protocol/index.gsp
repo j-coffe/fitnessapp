@@ -22,7 +22,7 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
+            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -47,8 +47,7 @@
                     <tr>
                         <g:sortableColumn property="athleteNum" title="№" />
                         <g:sortableColumn property="athleteFIO" title="ФИО Участника" />
-                        <g:sortableColumn property="point1" title="Оценка 1й выход" />
-                        <g:sortableColumn property="point2" title="Оценка 2й выход" />
+                        <g:sortableColumn property="point1" title="Оценка" />
                     </tr></thead><tbody></table>   
         <div id="pager"></div> 
     </div>
