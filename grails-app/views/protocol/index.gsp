@@ -35,8 +35,13 @@
 </head>
 <body>
     <div class="nav" role="navigation">
-
+        <ul>
+                <li><a class="home" href="${createLink(uri: '/')}">На главную</a></li>
+                
+                </ul>
+            </div>
         <g:select class="catSelect" name="catSelect" from="${categs}" optionValue ="title" optionKey ="id" />
+        
         <g:link class="pr_link" controller="protocol" action="edit" params="[category_id:'']">Редактировать протокол</g:link>
 
     </div>
