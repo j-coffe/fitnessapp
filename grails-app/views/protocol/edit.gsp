@@ -35,7 +35,7 @@
                                     <g:set var="protocol" value="${ Protocol.findAllWhere(judge: judge, ccategory: ccategory, competition:competition) }" />
                                     <g:set var="apt" value="${AthletePoint.findAllWhere(athlete:atl,protocol:protocol[0])}" />
                                     <td style="background:rgba(0,0,255,0.1)">
-                                        ${apt[0].id}
+                                        <!--${apt[0].id}-->
                                         <g:textField size="1" name="pp1_${apt[0].id}" required="" value="${apt[0].point1}"/>
                                     </td>
                                 </g:each>
