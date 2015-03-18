@@ -46,29 +46,29 @@ class AthleteController {
         athleteInstance.save flush:true
         
         
-        //добавляем атлету категории
-        def list=[];
-        list<<params.ccategory.id;
-        list=list.flatten();
-        list.each({
-                AthleteCCategory ac=new AthleteCCategory();
-                ac.athlete=athleteInstance
-                ac.ccategory=CCategory.get(it)
-                println ac.validate();
-                ac.save(flush: true) //flush:true
-            })
-        //добавить нулевые оценки в протоколы
-        list.each({
-                def ccat = CCategory.findById(it)
-                def prot =ccat.protocols
-                prot.each({
-                        AthletePoint ap=new AthletePoint(point1:0,point2:0,athlete:athleteInstance,protocol:it);
-                        println ap.validate();
-                        ap.save(flush: true);
-                    })
-                //println prot;
-            })
-        //--
+//        //добавляем атлету категории
+//        def list=[];
+//        list<<params.ccategory.id;
+//        list=list.flatten();
+//        list.each({
+//                AthleteCCategory ac=new AthleteCCategory();
+//                ac.athlete=athleteInstance
+//                ac.ccategory=CCategory.get(it)
+//                println ac.validate();
+//                ac.save(flush: true) //flush:true
+//            })
+//        //добавить нулевые оценки в протоколы
+//        list.each({
+//                def ccat = CCategory.findById(it)
+//                def prot =ccat.protocols
+//                prot.each({
+//                        AthletePoint ap=new AthletePoint(point1:0,point2:0,athlete:athleteInstance,protocol:it);
+//                        println ap.validate();
+//                        ap.save(flush: true);
+//                    })
+//                //println prot;
+//            })
+//        //--
         
         
         request.withFormat {
@@ -99,37 +99,37 @@ class AthleteController {
            
         athleteInstance.save(flush: true)
         
-        def remac = AthleteCCategory.findAllByAthlete(athleteInstance);
-        println AthleteCCategory.findAllByAthlete(athleteInstance).size()
-        remac.collect({it.delete(flush: true)})
-        //println AthleteCCategory.findAllByAthlete(athleteInstance).size()
-        
-        def remap = AthletePoint.findAllByAthlete(athleteInstance);
-        println AthletePoint.findAllByAthlete(athleteInstance).size()
-        remap.collect({it.delete(flush: true)})
-        //println AthletePoint.findAllByAthlete(athleteInstance).size()
-        
-        def list=[];
-        list<<params.ccategory.id;
-        list=list.flatten();
-        list.each({
-                AthleteCCategory ac=new AthleteCCategory();
-                ac.athlete=athleteInstance
-                ac.ccategory=CCategory.findById(it)
-                println ac.validate();
-                ac.save(flush: true) //flush:true
-                println ac
-            })
-        list.each({
-                def ccat = CCategory.findById(it)
-                def prot =ccat.protocols
-                prot.each({
-                        AthletePoint ap=new AthletePoint(point1:0,point2:0,athlete:athleteInstance,protocol:it);
-                        println ap.validate();
-                        ap.save(flush: true);
-                    })
-                //println prot;
-            })
+//        def remac = AthleteCCategory.findAllByAthlete(athleteInstance);
+//        println AthleteCCategory.findAllByAthlete(athleteInstance).size()
+//        remac.collect({it.delete(flush: true)})
+//        //println AthleteCCategory.findAllByAthlete(athleteInstance).size()
+//        
+//        def remap = AthletePoint.findAllByAthlete(athleteInstance);
+//        println AthletePoint.findAllByAthlete(athleteInstance).size()
+//        remap.collect({it.delete(flush: true)})
+//        //println AthletePoint.findAllByAthlete(athleteInstance).size()
+//        
+//        def list=[];
+//        list<<params.ccategory.id;
+//        list=list.flatten();
+//        list.each({
+//                AthleteCCategory ac=new AthleteCCategory();
+//                ac.athlete=athleteInstance
+//                ac.ccategory=CCategory.findById(it)
+//                println ac.validate();
+//                ac.save(flush: true) //flush:true
+//                println ac
+//            })
+//        list.each({
+//                def ccat = CCategory.findById(it)
+//                def prot =ccat.protocols
+//                prot.each({
+//                        AthletePoint ap=new AthletePoint(point1:0,point2:0,athlete:athleteInstance,protocol:it);
+//                        println ap.validate();
+//                        ap.save(flush: true);
+//                    })
+//                //println prot;
+//            })
 
         request.withFormat {
             form multipartForm {
