@@ -16,7 +16,7 @@
 		Номер
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="num" type="number" value="${judgeInstance.num}" required=""/>
+	<g:field name="num" type="number" required="" value="${params.maxnum}" required=""/>
 
 </div>
 

@@ -26,6 +26,13 @@ class AthleteController {
     }
 
     def create() {
+        def query = Athlete.where{num == max(num)}
+        def result =  query?.get()
+        if(result != null)
+            params.maxnum = result.num+1
+        else
+            params.maxnum = 1
+        
         respond new Athlete(params)
     }
 

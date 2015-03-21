@@ -26,12 +26,16 @@
                 <thead>
                     <tr>
                         <g:sortableColumn property="title" title="Название" />
+                        <g:sortableColumn property="numForPass" title="Сколько проходит" />
+                        <g:sortableColumn property="summarize" title="Суммировать" />
                     </tr>
                 </thead>
                 <tbody>
                     <g:each in="${CCategoryInstanceList}" status="i" var="CCategoryInstance">
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                             <td><g:link action="show" id="${CCategoryInstance.id}">${fieldValue(bean: CCategoryInstance, field: "title")}</g:link></td>
+                            <td>${fieldValue(bean: CCategoryInstance, field: "numForPass")}</td>
+                            <td>${fieldValue(bean: CCategoryInstance, field: "summarize")}</td>
                             </tr>
                     </g:each>
                 </tbody>

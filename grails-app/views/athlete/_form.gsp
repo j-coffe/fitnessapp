@@ -7,7 +7,7 @@
 		Номер
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="num" required="" value="${athleteInstance?.num}"/>
+	<g:field name="num" type="number" required="" value="${params.maxnum}"/>
 
 </div>
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'secondName', 'error')} required">
@@ -83,21 +83,22 @@
 
 </div>
 
-<!--div class="fieldcontain required">
+<div class="fieldcontain required">
 	<label for="ccategory">
 		Категории
 		<span class="required-indicator">*</span>
-	</label-->
+	</label>
         <!-- .minus( athleteInstance?.athleteccategory?.ccategory).sort({it.title}) -->
-	<!--g:select id="ccategory" name="ccategory.id" 
+	<g:select id="ccategory" name="ccategory.id" 
         from="${ fitnessapp.Competition.findById(session['competition' ].id).ccategories.sort({it.title}) }" 
         optionKey="id"
         optionValue="title" 
         required=""
         value="${ athleteInstance?.athleteccategory?.ccategory?.id }"
         class="many-to-one"
+        style="width:180px"
         multiple="true"/>
 
-</div-->
+</div>
 
 

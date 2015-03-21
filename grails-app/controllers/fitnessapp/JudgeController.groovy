@@ -23,6 +23,15 @@ class JudgeController {
     
 
     def create() {
+
+        def query = Judge.where{num == max(num)}
+        def result =  query?.get()
+        if(result != null)
+            params.maxnum = result.num+1
+        else
+            params.maxnum = 1
+   
+        
         respond new Judge(params)
     }
 
@@ -64,6 +73,8 @@ class JudgeController {
     def edit(Judge judgeInstance) {
         respond judgeInstance
     }
+    
+  
 
     @Transactional
     def update(Judge judgeInstance) {

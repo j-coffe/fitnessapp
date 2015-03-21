@@ -26,8 +26,8 @@
                 <g:passwordField name="password" value=""/>
             </div>
             <fieldset class="buttons">
-                <g:actionSubmit class="save" action="login" value="Изменить" />
-            </fieldset>
+                <g:actionSubmit class="save" action="login" value="Войти" />
+            </fieldset> 
         </g:form>
     </body>
 </html>

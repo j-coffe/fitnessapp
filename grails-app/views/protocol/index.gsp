@@ -14,6 +14,21 @@
     <jqgrid:resources />
     <g:javascript>
         $(document).ready(function(){
+            $.ajax({ url:"${createLink(controller:'protocol', action: 'getAthletesByCatId', )}/"+ <% if (flash.categ == null)%>$( ".catSelect option:selected" ).val()  <% else %> ${flash.categ} })
+        .done(function(json){
+        $('#list tbody').empty();
+        var tr;
+            for (i in json){
+            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
+            }
+            $('#list tbody').append(tr);
+            var pr_link_url = $('.pr_link').attr('href');
+            $('.pr_link').attr('href', pr_link_url.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val() );
+        });
+       
+        <g:if test="${flash.categ != null}">
+  $( ".catSelect" ).val(${flash.categ})
+</g:if>
         $(".catSelect").change(function(){
        <!-- alert($( ".catSelect option:selected" ).val());-->
 
@@ -22,7 +37,7 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><tr>';
+            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -52,7 +67,8 @@
                     <tr>
                         <g:sortableColumn property="athleteNum" title="№" />
                         <g:sortableColumn property="athleteFIO" title="ФИО Участника" />
-                        <g:sortableColumn property="point1" title="Оценка" />
+                        <g:sortableColumn property="point1" title="Оценка 1й выход" />
+                        <g:sortableColumn property="point2" title="Оценка 2й выход" />
                     </tr></thead><tbody></table>   
         <div id="pager"></div> 
     </div>

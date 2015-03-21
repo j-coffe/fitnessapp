@@ -31,6 +31,22 @@
 
                     </li>
                 </g:if>
+                <g:if test="${CCategoryInstance?.numForPass}">
+                    <li class="fieldcontain">
+                        <span id="title-label" class="property-label">Сколько первых проходит</span>
+
+                        <span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${CCategoryInstance}" field="numForPass"/></span>
+
+                    </li>
+                </g:if>
+                <g:if test="${CCategoryInstance?.summarize}">
+                    <li class="fieldcontain">
+                        <span id="title-label" class="property-label">Суммировать туры</span>
+
+                        <span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${CCategoryInstance}" field="summarize"/></span>
+
+                    </li>
+                </g:if>
             </ol>
             <g:form url="[resource:CCategoryInstance, action:'delete']" method="DELETE">
                 <fieldset class="buttons">
