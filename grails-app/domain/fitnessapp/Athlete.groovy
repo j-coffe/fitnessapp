@@ -11,7 +11,9 @@ class Athlete {
         num unique: ['competition']
         
     }
-    
+    Integer round1sum=0;
+    Integer round2sum=0;
+    static transients =['round1sum','round2sum']
     
     static belongsTo =[competition:Competition];
     static hasMany=[athleteccategory:AthleteCCategory, athletePoints : AthletePoint]

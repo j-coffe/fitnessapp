@@ -63,11 +63,7 @@ class ProtocolController {
           totalList.add(athMap);
         }
         
-        def mc= [
-                compare: {a,b-> Integer.valueOf(a.athleteNum).equals(Integer.valueOf(b.athleteNum)) ? 0 :
-                    Integer.valueOf(a.athleteNum) > Integer.valueOf(b.athleteNum)? 1: -1 }
-                ] as Comparator
-        totalList.sort(mc)
+        totalList.sort({a,b -> a.point1 <=> b.point1 ?: a.athleteNum <=> b.athleteNum})
         
         //Если хотим ограничить параметром из категории
         def numForPass = cat.numForPass;
@@ -88,13 +84,26 @@ class ProtocolController {
     
     
     @Transactional
-    def edit() {
+    def edit(@RequestParameter('round') int round) {
         Competition competition =  Competition.findById(session["competition"].id);
         CCategory ccategory=CCategory.findById(params['category_id']);
         def judges = competition.judges;
         def protocols=judges.protocols;
         flash.categ = params['category_id'];
-        render (view:"edit",model:[ccategory:ccategory,judges:judges,protocols:protocols,competition:competition])
+        // все атлеты в категории
+        def athletes = AthleteCCategory.findAllByCcategory(ccategory);
+        def prot = Protocol.findAllByCcategoryAndCompetition(ccategory, competition);
+        for(q in athletes) {
+            // q.athlete.id  - текущий атлет
+            // id - текущая категория
+            def q1 = AthletePoint.where{athlete == q.athlete && (protocol in prot)};
+            q.athlete.round1sum=q1.list().point1.sum() - q1.list().point1.max() - q1.list().point1.min()
+            
+        }
+        def myShortListOfAthletes = athletes.athlete.sort({it.round1sum}).take(ccategory.numForPass)
+//        println athletes.athlete.sort({it.round1sum}).take(ccategory.numForPass);
+        //
+        render (view:"edit",model:[ccategory:ccategory,judges:judges,protocols:protocols,competition:competition,round:round,myshortlistofathletes:myShortListOfAthletes])
     }  
     
     @Transactional
@@ -104,17 +113,17 @@ class ProtocolController {
                     AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
                     ap.point1=v.toInteger();
                     ap.save(flush: true)
-                     println (ap.id +" "+ ap.point1+" "+t+" "+v)
+                     //println (ap.id +" "+ ap.point1+" "+t+" "+v)
                 }
                 else if(t.split("_")[0]=="pp2"){
                     AthletePoint ap=AthletePoint.findById(t.split("_")[1]);
                     ap.point2=v.toInteger();
                     ap.save(flush: true)
-                    println (ap.id +" "+ ap.point2+" "+t+" "+v)
+                    //println (ap.id +" "+ ap.point2+" "+t+" "+v)
                 }
         })
 //        params.category_id=ccategory.id;
-        println flash.categ  //${flash.categ}
+        //println flash.categ  //${flash.categ}
         render (view:"index")
     }
     

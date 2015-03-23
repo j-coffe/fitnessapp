@@ -23,7 +23,9 @@
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
-            $('.pr_link').attr('href', pr_link_url.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val() );
+            var pr_link_url2 = $('.pr_link2').attr('href');
+            $('.pr_link').attr('href', pr_link_url.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val()+'&round=1' );
+            $('.pr_link2').attr('href', pr_link_url2.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val()+'&round=2' );
         });
        
         <g:if test="${flash.categ != null}">
@@ -41,7 +43,9 @@
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
-            $('.pr_link').attr('href', pr_link_url.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val() );
+            var pr_link_url2 = $('.pr_link2').attr('href');
+            $('.pr_link').attr('href', pr_link_url.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val()+'&round=1' );
+            $('.pr_link2').attr('href', pr_link_url2.split('?')[0]+'?category_id='+ $('.catSelect option:selected').val()+'&round=2' );
         });
         })
         })
@@ -57,7 +61,8 @@
             </div>
         <g:select class="catSelect" name="catSelect" from="${categs}" optionValue ="title" optionKey ="id" />
         
-        <g:link class="pr_link" controller="protocol" action="edit" params="[category_id:'']">Редактировать протокол</g:link>
+        <g:link class="pr_link" controller="protocol" action="edit" params="[category_id:'', round:'']">Редактировать протокол 1</g:link>
+        <g:link class="pr_link2" controller="protocol" action="edit" params="[category_id:'',round:'']">Редактировать протокол 2</g:link>
 
     </div>
     

@@ -29,15 +29,20 @@
                                 <th>Судья № ${judge.num}</th>
                             </g:each>
                         </tr>
-                        <g:each var="atl" in="${ccategory.athleteccategory.athlete.sort({it.num})}">
+                       
+                        <g:each var="atl" in="${round==1?ccategory.athleteccategory.athlete.sort({it.num}):myshortlistofathletes.sort({it.num})}">
                             <tr>
                                 <td>${atl.num} ${atl.secondName} ${atl.firstName[0]}.${atl.middleName[0]}</td>
                                 <g:each var="judge" in="${judges.sort({it.num})}">
                                     <g:set var="protocol" value="${ Protocol.findAllWhere(judge: judge, ccategory: ccategory, competition:competition) }" />
                                     <g:set var="apt" value="${AthletePoint.findAllWhere(athlete:atl,protocol:protocol[0])}" />
-                                    <td style="background:rgba(0,0,255,0.1)">
-                                      <!--   ${apt[0].id} -->
-                                        <g:textField size="1" name="pp1_${apt[0].id}" required="" value="${apt[0].point1}"/>
+                                    <td style="background:rgba(0,0,255,0.1)">                                     
+                                        <g:if test="${round==1}">
+                                            <g:textField size="2" name="pp1_${apt[0].id}" required="" value="${apt[0].point1}"/>
+                                        </g:if>
+                                        <g:else>
+                                            <g:textField size="2" name="pp2_${apt[0].id}" required="" value="${apt[0].point2}"/>
+                                        </g:else>
                                     </td>
                                 </g:each>
                             </tr>
