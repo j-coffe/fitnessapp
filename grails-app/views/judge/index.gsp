@@ -30,11 +30,11 @@
                         <g:sortableColumn property="num" title="Номер" />
 
                         <g:sortableColumn property="firstName" title="Имя" />
-
+<!--
                         <g:sortableColumn property="middleName" title="Отчество" />
 
                         <g:sortableColumn property="secondName" title="Фамилия" />
-
+-->
                     </tr>
                 </thead>
                 <tbody>
@@ -45,11 +45,11 @@
                             <!--td>${fieldValue(bean: judgeInstance, field: "competition")}</td-->
 
                             <td><g:link action="show" id="${judgeInstance.id}">${fieldValue(bean: judgeInstance, field: "firstName")}</g:link></td>
-
+<!--
                             <td>${fieldValue(bean: judgeInstance, field: "middleName")}</td>
 
                             <td>${fieldValue(bean: judgeInstance, field: "secondName")}</td>
-
+-->
                         </tr>
                     </g:each>
                 </tbody>

@@ -41,7 +41,7 @@
 
                     </li>
                 </g:if>
-
+<!--
                 <g:if test="${judgeInstance?.middleName}">
                     <li class="fieldcontain">
                         <span id="middleName-label" class="property-label">Отчество</span>
@@ -61,7 +61,7 @@
 
                     </li>
                 </g:if>
-
+-->
             </ol>
             <g:form url="[resource:judgeInstance, action:'delete']" method="DELETE">
                 <fieldset class="buttons">

@@ -63,6 +63,15 @@
                     </li>
                 </g:if>
 
+                
+                <g:if test="${athleteInstance?.coachName}">
+                    <li class="fieldcontain">
+                        <span id="middleName-label" class="property-label">Тренер</span>
+
+                        <span class="property-value" aria-labelledby="coachName-label"><g:fieldValue bean="${athleteInstance}" field="coachName"/></span>
+
+                    </li>
+                </g:if>
 
                 <g:if test="${athleteInstance?.birthday}">
                     <li class="fieldcontain">

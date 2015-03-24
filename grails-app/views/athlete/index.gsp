@@ -30,18 +30,12 @@
                         <g:sortableColumn property="num" title="Номер" />
                         <g:sortableColumn property="secondName" title="Фамилия" />
                         <g:sortableColumn property="firstName" title="Имя" />
-
                         <g:sortableColumn property="middleName" title="Отчество" />
-
+                        <g:sortableColumn property="coachName" title="Тренер" />
                         
 
-                        <g:sortableColumn property="birthday" title="Дата рождения" />
-
                         <g:sortableColumn property="sex" title="Пол" />
-
-                        <g:sortableColumn property="height" title="Рост, см" />
-
-                        <g:sortableColumn property="weight" title="Вес, кг" />
+                        
                         
                         <g:sortableColumn property="city" title="Город" />
                         
@@ -59,15 +53,15 @@
 
                             <td>${fieldValue(bean: athleteInstance, field: "middleName")}</td>
 
-                            
+                            <td>${fieldValue(bean: athleteInstance, field: "coachName")}</td>
 
-                            <td><g:formatDate format="yyyy-MM-dd" date="${athleteInstance.birthday}" /></td>
+                            <!--<td><g:formatDate format="yyyy-MM-dd" date="${athleteInstance.birthday}" /></td>-->
 
                             <td><g:formatBoolean true="муж." false="жен." boolean="${athleteInstance.sex}" /></td>
 
-                            <td>${fieldValue(bean: athleteInstance, field: "height")}</td>
+                           <!-- <td>${fieldValue(bean: athleteInstance, field: "height")}</td>
                             
-                            <td>${fieldValue(bean: athleteInstance, field: "weight")}</td>
+                            <td>${fieldValue(bean: athleteInstance, field: "weight")}</td>-->
                             
                             <td>${fieldValue(bean: athleteInstance, field: "city")}</td>
                             

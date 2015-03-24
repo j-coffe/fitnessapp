@@ -7,6 +7,7 @@ class Athlete {
     Date birthday;
     Double height,weight;
     String city;
+    String  coachName;
     static constraints={
         num unique: ['competition']
         

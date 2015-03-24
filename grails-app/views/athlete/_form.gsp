@@ -37,10 +37,10 @@
 </div>
 
 
-<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'birthday', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'birthday', 'error')} ">
 	<label for="birthday">
 		День рождения
-		<span class="required-indicator">*</span>
+		
 	</label>
 	<g:datePicker name="birthday" precision="day"  value="${athleteInstance?.birthday}"  />
 
@@ -56,21 +56,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'height', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'height', 'error')} ">
 	<label for="height">
 		Рост
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:field name="height" value="${fieldValue(bean: athleteInstance, field: 'height')}" required=""/>
+	<g:field name="height" value="${fieldValue(bean: athleteInstance, field: 'height')}" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'weight', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'weight', 'error')} ">
 	<label for="weight">
 		Вес
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:field name="weight" value="${fieldValue(bean: athleteInstance, field: 'weight')}" required=""/>
+	<g:field name="weight" value="${fieldValue(bean: athleteInstance, field: 'weight')}" />
 
 </div>
 
@@ -80,6 +80,15 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="city" value="${fieldValue(bean: athleteInstance, field: 'city')}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'coachName', 'error')} required">
+	<label for="coachName">
+		Город
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="coachName" value="${fieldValue(bean: athleteInstance, field: 'coachName')}" required=""/>
 
 </div>
 
