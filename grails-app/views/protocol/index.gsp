@@ -19,7 +19,7 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
+            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><td>' + json[i].summ + '</td><td>' + (parseInt(i)+1) + '</td><tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -39,7 +39,7 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><tr>';
+            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><td>' + json[i].summ + '</td><td>' + (parseInt(i)+1) + '</td><tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -63,6 +63,7 @@
         
         <g:link class="pr_link" controller="protocol" action="edit" params="[category_id:'', round:'']">Редактировать протокол 1</g:link>
         <g:link class="pr_link2" controller="protocol" action="edit" params="[category_id:'',round:'']">Редактировать протокол 2</g:link>
+        
 
     </div>
     
@@ -74,6 +75,8 @@
                         <g:sortableColumn property="athleteFIO" title="ФИО Участника" />
                         <g:sortableColumn property="point1" title="Оценка 1й выход" />
                         <g:sortableColumn property="point2" title="Оценка 2й выход" />
+                        <g:sortableColumn property="sum" title="Сумма" />
+                        <g:sortableColumn property="win" title="Место" />
                     </tr></thead><tbody></table>   
         <div id="pager"></div> 
     </div>
