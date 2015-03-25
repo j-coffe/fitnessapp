@@ -10,7 +10,8 @@ class Athlete {
     String  coachName;
     static constraints={
         num unique: ['competition']
-        
+        height nullable: true
+        weight nullable: true
     }
     Integer round1sum=0;
     Integer round2sum=0;

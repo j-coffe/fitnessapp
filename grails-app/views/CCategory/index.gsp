@@ -35,7 +35,7 @@
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                             <td><g:link action="show" id="${CCategoryInstance.id}">${fieldValue(bean: CCategoryInstance, field: "title")}</g:link></td>
                             <td>${fieldValue(bean: CCategoryInstance, field: "numForPass")}</td>
-                            <td>${fieldValue(bean: CCategoryInstance, field: "summarize")}</td>
+                            <td>${fieldValue(bean: CCategoryInstance, field: "summarize")=='true'?"да":"нет"}</td>
                             </tr>
                     </g:each>
                 </tbody>

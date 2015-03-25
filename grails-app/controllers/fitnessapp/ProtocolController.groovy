@@ -25,7 +25,7 @@ class ProtocolController {
             // q.athlete.id  - текущий атлет
             // id - текущая категория
             def athMap = [:];
-            athMap=[athleteFIO : q.athlete.firstName + " " + q.athlete.secondName + " " + q.athlete.middleName + " (" + q.athlete.coachName + ")", athleteNum : q.athlete.num];//наименование участника
+            athMap=[athleteFIO : q.athlete.secondName + " " + q.athlete.firstName + " " + q.athlete.middleName + " (" + q.athlete.coachName + ")", athleteNum : q.athlete.num];//наименование участника
             def q1 = AthletePoint.where{athlete == q.athlete && (protocol in protocols)};
             int max1 = q1.list().point1.max();
             int min1 = q1.list().point1.min();
@@ -69,6 +69,7 @@ class ProtocolController {
                 }
             }
             else{
+                athMap.put("summ", "нет");
                 if(athMap.point2==0){
                     athMap.put("point2",athMap.point2+10_000 );
                 }
@@ -92,6 +93,7 @@ class ProtocolController {
                 println t.point2
             }
         }
+        
     
         
         //Если хотим ограничить параметром из категории

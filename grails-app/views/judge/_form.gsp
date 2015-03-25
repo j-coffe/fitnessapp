@@ -28,24 +28,4 @@
 	<g:textField name="firstName" value="${judgeInstance?.firstName}"/>
 
 </div>
-<!--
-<div class="fieldcontain ${hasErrors(bean: judgeInstance, field: 'middleName', 'error')} ">
-	<label for="middleName">
-		Отчество
-		
-	</label>
-	<g:textField name="middleName" value="${judgeInstance?.middleName}"/>
 
-</div>
-
-
-
-<div class="fieldcontain ${hasErrors(bean: judgeInstance, field: 'secondName', 'error')} ">
-	<label for="secondName">
-		Фамилия
-		
-	</label>
-	<g:textField name="secondName" value="${judgeInstance?.secondName}"/>
-
-</div>
--->

@@ -85,7 +85,7 @@
 
 <div class="fieldcontain ${hasErrors(bean: athleteInstance, field: 'coachName', 'error')} required">
 	<label for="coachName">
-		Город
+		Тренер
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="coachName" value="${fieldValue(bean: athleteInstance, field: 'coachName')}" required=""/>

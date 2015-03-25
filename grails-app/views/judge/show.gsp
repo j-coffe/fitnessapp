@@ -41,27 +41,7 @@
 
                     </li>
                 </g:if>
-<!--
-                <g:if test="${judgeInstance?.middleName}">
-                    <li class="fieldcontain">
-                        <span id="middleName-label" class="property-label">Отчество</span>
 
-                        <span class="property-value" aria-labelledby="middleName-label"><g:fieldValue bean="${judgeInstance}" field="middleName"/></span>
-
-                    </li>
-                </g:if>
-
-
-
-                <g:if test="${judgeInstance?.secondName}">
-                    <li class="fieldcontain">
-                        <span id="secondName-label" class="property-label">Фамилия</span>
-
-                        <span class="property-value" aria-labelledby="secondName-label"><g:fieldValue bean="${judgeInstance}" field="secondName"/></span>
-
-                    </li>
-                </g:if>
--->
             </ol>
             <g:form url="[resource:judgeInstance, action:'delete']" method="DELETE">
                 <fieldset class="buttons">

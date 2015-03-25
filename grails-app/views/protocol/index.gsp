@@ -19,7 +19,8 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><td>' + json[i].summ + '</td><td>' + (parseInt(i)+1) + '</td><tr>';
+            var trc = (i==0 || i==1 || i==2)?'<tr style="color:red;">':'<tr>';
+            tr += trc+'<td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><td>' + json[i].summ + '</td>' + '<td>' + (parseInt(i)+1) + '</td></tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -39,7 +40,8 @@
         $('#list tbody').empty();
         var tr;
             for (i in json){
-            tr += '<tr><td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><td>' + json[i].summ + '</td><td>' + (parseInt(i)+1) + '</td><tr>';
+            var trc = (i==0 || i==1 || i==2)?'<tr style="color:red;">':'<tr>';
+            tr += trc+'<td>' + json[i].athleteNum + '</td><td>' + json[i].athleteFIO + '</td><td>' + json[i].point1 + '</td><td>' + json[i].point2 + '</td><td>' + json[i].summ + '</td><td>' + (parseInt(i)+1) + '</td></tr>';
             }
             $('#list tbody').append(tr);
             var pr_link_url = $('.pr_link').attr('href');
@@ -77,7 +79,7 @@
                         <g:sortableColumn property="point2" title="Оценка 2й выход" />
                         <g:sortableColumn property="sum" title="Сумма" />
                         <g:sortableColumn property="win" title="Место" />
-                    </tr></thead><tbody></table>   
+                    </tr></thead><tbody></tbody></table>   
         <div id="pager"></div> 
     </div>
 
